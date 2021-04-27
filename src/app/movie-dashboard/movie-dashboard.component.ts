@@ -6,6 +6,7 @@ import { ConfigureService } from './../shared/services/configure.service';
 import { SpinnerService } from '../shared/interceptor/interceptor-loader/spinner.service';
 import { MoviesService } from '../shared/services/movies.service';
 import { environment } from 'src/environments/environment';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-movie-dashboard',
@@ -17,8 +18,8 @@ export class MovieDashboardComponent implements OnInit {
     private _MoviesService: MoviesService,
     public spinnerService: SpinnerService,
     private configureService: ConfigureService
-  ) {}
-  isLoading?: any;
+  ) { }
+  isLoading?: boolean;
   configList?: IConfig;
   moviesList: IMovieList[] = [];
   movieDetailsList: IMovie[] = [];
@@ -43,15 +44,16 @@ export class MovieDashboardComponent implements OnInit {
 
   ngOnInit() {
     //get config
+    this.spinnerService.isLoading.subscribe(loading => this.isLoading = loading)
     this.configureService.getConfigure().subscribe((c) => {
       this.IMG_SIZE = c.images.backdrop_sizes[0];
       this.configList = c;
     });
     //get article
     this._MoviesService.getMovies().subscribe((m) => {
-      this.moviesList = m.results.slice(0, 15);
-      this.moviesList.filter((m) => m.adult === false);
-      this.getMovieDetails(this.moviesList);
+      this.moviesList = m.results.slice(0, 104);
+      let filterMovieList = this.moviesList.filter((m) => !m.adult);
+      this.getMovieDetails(filterMovieList);
     });
   }
   ngAfterContentChecked() {

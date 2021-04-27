@@ -1,7 +1,9 @@
 <p>movie-dashboard works!</p>
-<div *ngIf="movieDetailsList.length > 0; else elseBlock">
+<div *ngIf="movieDetailsList.length > 0 && !isLoading; else elseBlock">
   <div *ngFor="let movie of movieDetailsList">
-    <div>{{ renderImage(movie.poster_path) }}</div>
+    <div>{{ renderImage(movie.poster_path) }}
+      <h1>{{movie.id}}</h1>
+    </div>
     <div class="image-container">
       <img [src]="renderImage(movie.poster_path)" />
     </div>
