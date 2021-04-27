@@ -1,3 +1,4 @@
+import { MovieDashboardComponent } from './movie-dashboard/movie-dashboard.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -12,7 +13,7 @@ import { InterceptorLoader } from './shared/interceptor/interceptor-loader/inter
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MovieDashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

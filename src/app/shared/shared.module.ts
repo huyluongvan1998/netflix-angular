@@ -10,7 +10,7 @@ import { SpinnerService } from './interceptor/interceptor-loader/spinner.service
 
 @NgModule({
   declarations: [MyLoaderComponent, BackdropComponent],
-  imports: [HttpClientModule],
+  imports: [],
   providers: [MoviesService, ConfigureService, SpinnerService],
   exports: [
     CommonModule,

@@ -49,7 +49,8 @@ export class MovieDashboardComponent implements OnInit {
     });
     //get article
     this._MoviesService.getMovies().subscribe((m) => {
-      this.moviesList = m.results.slice(0, 10);
+      this.moviesList = m.results.slice(0, 15);
+      this.moviesList.filter((m) => m.adult === false);
       this.getMovieDetails(this.moviesList);
     });
   }

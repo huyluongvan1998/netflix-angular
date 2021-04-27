@@ -1,1 +1,10 @@
 <p>movie-dashboard works!</p>
+<div *ngIf="movieDetailsList.length > 0; else elseBlock">
+  <div *ngFor="let movie of movieDetailsList">
+    <div>{{ renderImage(movie.poster_path) }}</div>
+    <div class="image-container">
+      <img [src]="renderImage(movie.poster_path)" />
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock>There is no content!</ng-template>

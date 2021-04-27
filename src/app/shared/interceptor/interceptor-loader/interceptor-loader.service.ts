@@ -56,6 +56,7 @@ export class InterceptorLoader implements HttpInterceptor {
         (err) => {
           this.removeRequest(req);
           this._toast.error(err.error.status_message);
+          console.log('error', err);
           ob.error(err);
         },
         () => {
