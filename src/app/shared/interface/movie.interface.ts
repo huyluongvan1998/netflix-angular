@@ -37,7 +37,6 @@ export interface IMovie {
   original_title: string;
   overview: string | null;
   popularity: number;
-  poster_path: string | null;
   production_companies: [
     {
       name: string;
@@ -63,6 +62,22 @@ export interface IMovie {
   ];
   status: string;
   tagline: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
+}
+
+export interface IAnimationMovie {
+  adult: boolean;
+  genre_ids: [];
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string | null;
+  popularity: number;
+  backdrop_path: string | null;
+  release_date: string;
   title: string;
   video: boolean;
   vote_average: number;

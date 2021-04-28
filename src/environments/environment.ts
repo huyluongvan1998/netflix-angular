@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   API_ENDPOINT: 'https://api.themoviedb.org/3', //api url
-  API_IMAGE: 'https://image.tmdb.org/t/p/w500',
+  API_IMAGE: 'https://image.tmdb.org/t/p',
 };
 
 /*

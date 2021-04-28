@@ -1,4 +1,3 @@
-import { SpinnerService } from './../../interceptor/interceptor-loader/spinner.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -7,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./my-loader.component.scss'],
 })
 export class MyLoaderComponent implements OnInit {
-  constructor(private spinnerService: SpinnerService) {}
+  constructor() {}
   @Input() isLoading?: boolean;
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 }

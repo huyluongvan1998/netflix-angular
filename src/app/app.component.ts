@@ -6,7 +6,7 @@ import { SpinnerService } from './shared/interceptor/interceptor-loader/spinner.
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  isLoading?: boolean;
+  isLoading: boolean = false;
   title = 'clone-netflix';
 
   constructor(public spinnerService: SpinnerService) {}

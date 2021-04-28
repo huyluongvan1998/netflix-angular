@@ -1,12 +1,16 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
-import { IMovie, IMovieList } from './../shared/interface/movie.interface';
-import { IConfig } from './../shared/interface/config.interface';
-import { ConfigureService } from './../shared/services/configure.service';
+import {
+  IMovie,
+  IMovieList,
+  IAnimationMovie,
+} from '../shared/interface/movie.interface';
+import { IConfig } from '../shared/interface/config.interface';
+import { ConfigureService } from '../shared/services/configure.service';
 import { SpinnerService } from '../shared/interceptor/interceptor-loader/spinner.service';
 import { MoviesService } from '../shared/services/movies.service';
 import { environment } from 'src/environments/environment';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-movie-dashboard',
@@ -18,25 +22,24 @@ export class MovieDashboardComponent implements OnInit {
     private _MoviesService: MoviesService,
     public spinnerService: SpinnerService,
     private configureService: ConfigureService
-  ) { }
+  ) {}
   isLoading?: boolean;
   configList?: IConfig;
   moviesList: IMovieList[] = [];
   movieDetailsList: IMovie[] = [];
-
+  animationMovieList: IAnimationMovie[] = [];
   //CONSTANT FOR IMG
-  IMG_SIZE: string = '';
+  IMG_SIZE: string = 'w300';
 
-  renderImage(path: string | null): string {
-    let IMG_URL = `${environment.API_IMAGE}/${path}`;
-    return IMG_URL;
+  renderImage(path: string): string {
+    return this._MoviesService.getUrlImage(path, this.IMG_SIZE);
   }
 
   getMovieDetails = (movies: IMovieList[]): IMovie[] => {
-    movies.map((m) =>
-      this._MoviesService
-        .getMovieDetails(m.id)
-        .subscribe((c) => this.movieDetailsList.push(c))
+    movies.forEach((m) =>
+      this._MoviesService.getMovieDetailService(m.id).subscribe((c) => {
+        c.backdrop_path !== null && this.movieDetailsList.push(c);
+      })
     );
 
     return this.movieDetailsList;
@@ -44,19 +47,24 @@ export class MovieDashboardComponent implements OnInit {
 
   ngOnInit() {
     //get config
-    this.spinnerService.isLoading.subscribe(loading => this.isLoading = loading)
+    this.spinnerService.isLoading.subscribe(
+      (loading) => (this.isLoading = loading)
+    );
     this.configureService.getConfigure().subscribe((c) => {
       this.IMG_SIZE = c.images.backdrop_sizes[0];
       this.configList = c;
     });
+    //get animation
+    this._MoviesService
+      .getAnimationList()
+      .subscribe((c) => (this.animationMovieList = c.results));
     //get article
     this._MoviesService.getMovies().subscribe((m) => {
       this.moviesList = m.results.slice(0, 104);
-      let filterMovieList = this.moviesList.filter((m) => !m.adult);
+      let filterMovieList = this.moviesList.filter(
+        (m) => !m.adult && m.adult !== null
+      );
       this.getMovieDetails(filterMovieList);
     });
-  }
-  ngAfterContentChecked() {
-    this.movieDetailsList.forEach((m) => this.renderImage(m.poster_path));
   }
 }

@@ -1,12 +1,14 @@
-<p>movie-dashboard works!</p>
-<div *ngIf="movieDetailsList.length > 0 && !isLoading; else elseBlock">
-  <div *ngFor="let movie of movieDetailsList">
-    <div>{{ renderImage(movie.poster_path) }}
-      <h1>{{movie.id}}</h1>
-    </div>
-    <div class="image-container">
-      <img [src]="renderImage(movie.poster_path)" />
+<app-movie-billboard [movieList]="animationMovieList"></app-movie-billboard>
+<div class="container">
+  <div *ngIf="movieDetailsList.length > 0 && !isLoading; else elseBlock">
+    <div *ngFor="let movie of animationMovieList">
+      <div>
+        <h1>{{ movie.id }}</h1>
+      </div>
+      <div class="image-container">
+        <img [src]="renderImage(movie.backdrop_path || '')" />
+      </div>
     </div>
   </div>
+  <ng-template #elseBlock>There is no content!</ng-template>
 </div>
-<ng-template #elseBlock>There is no content!</ng-template>

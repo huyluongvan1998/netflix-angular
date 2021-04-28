@@ -1,0 +1,26 @@
+<p>movie-billboard works!</p>
+
+<div class="billboard" *ngIf="!isLoading && billboardMovie?.id !== null">
+  <div class="billboard-image">
+    <div class="billboard-image-content">
+      <div class="billboard-image-content-title">
+        {{ billboardMovie?.title }}
+      </div>
+      <div class="billboard-image-content-desc">
+        {{ billboardMovie?.overview }}
+      </div>
+      <div class="billboard-image-content-button">
+        <app-button [text]="'Play'"></app-button>
+        <app-button
+          [text]="'More Information'"
+          [color]="'#FFFFFF'"
+          [bg_color]="'#6D6D6EB3'"
+        ></app-button>
+      </div>
+    </div>
+    <div
+      class="billboard-image-holder"
+      [ngStyle]="{ 'background-image': billboardImageUrl }"
+    ></div>
+  </div>
+</div>

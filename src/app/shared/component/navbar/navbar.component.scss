@@ -1,0 +1,52 @@
+$regular-color: rgb(20, 20, 20);
+
+.navbar-nav {
+  background-color: transparent;
+  padding: 0 3rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  flex-flow: row;
+  z-index: 100;
+}
+%text-standard {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #e5e5e5;
+}
+
+.navbar {
+  &-content {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    &-icon {
+      width: 100px;
+      height: 50px;
+      &-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &-menu {
+      &-list {
+        ul {
+          display: flex;
+          flex-flow: row;
+          margin-bottom: 0;
+          list-style: none;
+
+          @extend %text-standard;
+
+          li {
+            padding-right: 1em;
+          }
+        }
+      }
+    }
+  }
+}
