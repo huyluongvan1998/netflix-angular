@@ -10,7 +10,6 @@ import { IConfig } from '../shared/interface/config.interface';
 import { ConfigureService } from '../shared/services/configure.service';
 import { SpinnerService } from '../shared/interceptor/interceptor-loader/spinner.service';
 import { MoviesService } from '../shared/services/movies.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie-dashboard',

@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
+    "angular-carousel": "^1.1.0",
+    "angular-responsive-carousel": "^2.0.2",
     "bootstrap": "^4.5.0",
     "css-spinners": "^1.0.1",
     "ngx-toastr": "^13.2.1",

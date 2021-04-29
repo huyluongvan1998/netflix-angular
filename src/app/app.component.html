@@ -1,6 +1,8 @@
-<app-navbar></app-navbar>
-<app-my-loader [isLoading]="isLoading"></app-my-loader>
+<div class="main">
+  <app-navbar></app-navbar>
+  <app-my-loader [isLoading]="isLoading"></app-my-loader>
 
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 
-<app-backdrop [isLoading]="isLoading"></app-backdrop>
+  <app-backdrop [isLoading]="isLoading"></app-backdrop>
+</div>

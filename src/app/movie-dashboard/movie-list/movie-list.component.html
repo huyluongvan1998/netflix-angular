@@ -1,0 +1,12 @@
+<div class="movie-list">
+  <div class="movie-list-title">New Release</div>
+  <carousel
+    *ngIf="movieList.length > 0 && !isLoading"
+    [cellsToShow]="5"
+    [cellsToScroll]="5"
+  >
+    <div class="carousel-cell" *ngFor="let m of movieList">
+      <img [src]="renderImage(m.backdrop_path)" alt="error" />
+    </div>
+  </carousel>
+</div>

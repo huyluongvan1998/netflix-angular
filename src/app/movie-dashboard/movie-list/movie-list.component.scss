@@ -1,0 +1,20 @@
+.movie-list {
+  position: relative;
+  top: 75%;
+  height: 18vw;
+  z-index: 10000;
+  .carousel {
+    margin-left: 3rem;
+    width: 96%;
+    height: 100% !important;
+  }
+  &-title {
+    font-size: 3vw;
+    color: #fff;
+    margin-bottom: 0;
+    position: inherit;
+    font-weight: 600;
+    left: 3rem;
+    top: 1.5rem;
+  }
+}

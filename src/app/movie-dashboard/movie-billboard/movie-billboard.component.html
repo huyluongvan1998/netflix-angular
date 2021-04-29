@@ -1,26 +1,34 @@
-<p>movie-billboard works!</p>
-
 <div class="billboard" *ngIf="!isLoading && billboardMovie?.id !== null">
-  <div class="billboard-image">
-    <div class="billboard-image-content">
-      <div class="billboard-image-content-title">
-        {{ billboardMovie?.title }}
-      </div>
-      <div class="billboard-image-content-desc">
-        {{ billboardMovie?.overview }}
-      </div>
-      <div class="billboard-image-content-button">
-        <app-button [text]="'Play'"></app-button>
-        <app-button
-          [text]="'More Information'"
-          [color]="'#FFFFFF'"
-          [bg_color]="'#6D6D6EB3'"
-        ></app-button>
+  <div
+    class="billboard-image billboard-image-holder"
+    [ngStyle]="{ 'background-image': billboardImageUrl }"
+  >
+    <div class="billboard-image-section">
+      <div class="billboard-image-section-content">
+        <div class="billboard-image-section-content-title">
+          {{ billboardMovie?.title }}
+        </div>
+        <div class="billboard-image-section-content-desc">
+          <div class="billboard-image-section-content-desc-words">
+            {{ billboardMovie?.overview }}
+          </div>
+        </div>
+        <div class="billboard-image-section-content-button">
+          <app-button [text]="'Play'"></app-button>
+          <app-button
+            [text]="'More Information'"
+            [color]="'#FFFFFF'"
+            [bg_color]="'#6D6D6EB3'"
+          ></app-button>
+        </div>
       </div>
     </div>
-    <div
-      class="billboard-image-holder"
-      [ngStyle]="{ 'background-image': billboardImageUrl }"
-    ></div>
+    <!--  vignette  -->
+    <div class="billboard-image-holder-vignette-left"></div>
+    <div class="billboard-image-holder-vignette-bottom"></div>
   </div>
+  <app-movie-list
+    class="app-movie-list"
+    [movieList]="movieList"
+  ></app-movie-list>
 </div>

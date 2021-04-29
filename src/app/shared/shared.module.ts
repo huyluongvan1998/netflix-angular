@@ -8,6 +8,7 @@ import { BackdropComponent } from './component/backdrop/backdrop.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { ButtonComponent } from './component/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
     NavbarComponent,
     ButtonComponent,
   ],
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, IvyCarouselModule],
   exports: [
     CommonModule,
     MyLoaderComponent,
@@ -26,6 +27,7 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     MatProgressSpinnerModule,
     MatButtonModule,
+    IvyCarouselModule,
   ],
 })
 export class SharedModule {}

@@ -7,60 +7,98 @@ $text-standard-weight: 400;
 $text-standard-size: 16px;
 
 .billboard {
+  height: 54.25vw;
   width: 100%;
-  height: 56.25vw;
   position: absolute;
   top: 0;
   left: 0;
   &-image {
-    width: 100%;
-    height: 100%;
-    &-holder {
-      width: 100%;
-      height: 100%;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 50;
-    }
-
-    &-content {
+    &-section {
       width: 30%;
-      position: relative;
-      top: 40%;
+      position: absolute;
+      top: 25%;
       left: 5%;
       z-index: 80;
+      &-content {
+        &-title {
+          text-align: center;
 
-      &-title {
-        text-align: center;
-        width: 100%;
-        height: 20%;
-        color: $text-color;
-        font-size: $title-size;
-        line-height: 24px;
-        font-weight: $title-weight;
-        margin-bottom: $margin-size;
-      }
+          height: 20%;
+          color: $text-color;
+          font-size: 3vw;
+          line-height: 24px;
+          font-weight: $title-weight;
+          margin-bottom: $margin-size;
+        }
 
-      &-desc {
-        color: $text-color;
-        font-size: $text-standard-size;
-        line-height: 16px;
-        font-weight: $text-standard-weight;
-        width: 100%;
-        margin-bottom: $margin-size;
-      }
-
-      &-button {
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: $margin-size;
+        &-desc {
+          margin-bottom: $margin-size;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          &-words {
+            color: $text-color;
+            font-size: 1.4vw;
+            line-height: normal;
+            font-weight: $text-standard-weight;
+            white-space: pre-wrap;
+            width: 100%;
+          }
+        }
+        &-button {
+          display: flex;
+          margin-bottom: $margin-size;
+        }
       }
     }
+  }
+}
+
+.billboard-image-holder {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+
+  &-vignette-bottom {
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(20, 20, 20, 0)),
+      color-stop(15%, rgba(20, 20, 20, 0.15)),
+      color-stop(40%, rgba(20, 20, 20, 0.35)),
+      color-stop(45%, rgba(20, 20, 20, 0.58)),
+      color-stop(78%, #141414),
+      to(#141414)
+    );
+    height: 50%;
+
+    position: absolute;
+    top: 56%;
+    z-index: 55;
+  }
+  &-vignette-left {
+    background: -webkit-gradient(
+      linear,
+      right top,
+      left top,
+      from(rgba(20, 20, 20, 0)),
+      color-stop(15%, rgba(20, 20, 20, 0.15)),
+      color-stop(40%, rgba(20, 20, 20, 0.35)),
+      color-stop(45%, rgba(20, 20, 20, 0.58)),
+      color-stop(78%, rgba(20, 20, 20, 0.8)),
+      to(#141414)
+    );
+    height: inherit;
+    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 55;
   }
 }
