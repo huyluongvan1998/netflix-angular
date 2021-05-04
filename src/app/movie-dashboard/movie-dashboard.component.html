@@ -1,3 +1,16 @@
-<div class="movie-dashboard">
-  <app-movie-billboard [movieList]="animationMovieList"></app-movie-billboard>
-</div>
+<app-movie-billboard [movieList]="animationMovieList"></app-movie-billboard>
+<app-movie-list
+  class="app-movie-list"
+  [listTitle]="'New Release'"
+  [movieList]="animationMovieList"
+></app-movie-list>
+<app-movie-list
+  class="app-movie-list"
+  [listTitle]="'Trending'"
+  [movieList]="animationMovieList"
+></app-movie-list>
+<app-movie-list
+  class="app-movie-list"
+  [listTitle]="'Horror'"
+  [movieList]="animationMovieList"
+></app-movie-list>

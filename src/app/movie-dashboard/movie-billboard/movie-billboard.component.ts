@@ -31,7 +31,6 @@ export class MovieBillboardComponent implements OnChanges {
   }
 
   getBillboardMovie = () => {
-    console.log(this.movieList);
     if (this.movieList?.length > 0) {
       this.billboardMovie = this.movieList[
         Math.floor(Math.random() * (this.LIST_LENGTH - 1))
@@ -43,10 +42,8 @@ export class MovieBillboardComponent implements OnChanges {
   };
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log('changes ', changes);
     if (this.movieList.length > 0) {
       this.getBillboardMovie();
-      console.log('run bitch run', this.billboardImageUrl);
     }
     return;
   }

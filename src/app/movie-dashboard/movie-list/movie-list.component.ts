@@ -14,6 +14,7 @@ import { MoviesService } from 'src/app/shared/services/movies.service';
 })
 export class MovieListComponent implements OnInit {
   @Input() movieList: IAnimationMovie[] = [];
+  @Input() listTitle: string = '';
   isLoading: boolean = false;
   IMG_SIZE: string = 'w300';
   constructor(

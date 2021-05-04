@@ -10,7 +10,7 @@
         </div>
         <div class="billboard-image-section-content-desc">
           <div class="billboard-image-section-content-desc-words">
-            {{ billboardMovie?.overview }}
+            {{ billboardMovie?.overview | shortenOverview }}
           </div>
         </div>
         <div class="billboard-image-section-content-button">
@@ -27,8 +27,4 @@
     <div class="billboard-image-holder-vignette-left"></div>
     <div class="billboard-image-holder-vignette-bottom"></div>
   </div>
-  <app-movie-list
-    class="app-movie-list"
-    [movieList]="movieList"
-  ></app-movie-list>
 </div>

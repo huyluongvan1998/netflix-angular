@@ -1,5 +1,5 @@
-<div class="movie-list">
-  <div class="movie-list-title">New Release</div>
+<div class="movie-list" *ngIf="!isLoading">
+  <div class="movie-list-title">{{ listTitle }}</div>
   <carousel
     *ngIf="movieList.length > 0 && !isLoading"
     [cellsToShow]="5"

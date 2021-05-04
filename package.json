@@ -27,6 +27,7 @@
     "angular-responsive-carousel": "^2.0.2",
     "bootstrap": "^4.5.0",
     "css-spinners": "^1.0.1",
+    "ngx-skeleton-loader": "^2.9.1",
     "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "slick-carousel": "^1.8.1",

@@ -1,20 +1,33 @@
 .movie-list {
-  position: relative;
-  top: 75%;
   height: 18vw;
-  z-index: 10000;
+  z-index: 1000;
+  overflow: hidden;
+  position: relative;
+  bottom: 13rem;
   .carousel {
     margin-left: 3rem;
     width: 96%;
     height: 100% !important;
+
+    &-cell {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 85%;
+        transition: all ease-out 0.5s;
+      }
+      img:hover {
+        width: 100% !important;
+        object-fit: cover;
+      }
+    }
   }
   &-title {
-    font-size: 3vw;
+    font-size: 2vw;
     color: #fff;
-    margin-bottom: 0;
-    position: inherit;
+    margin: 0 0 0 3rem;
     font-weight: 600;
-    left: 3rem;
-    top: 1.5rem;
+    position: relative;
+    top: 2rem;
   }
 }
